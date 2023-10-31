@@ -24,7 +24,9 @@ select
     {{ current_timestamp() }} as _airbyte_normalized_at,
     _airbyte_period_balances_hashid
 from {{ ref('nominal_codes_financ_years_period_balances_scd') }}
--- period_balancesfrom {{ source('sage200_etl_pte', '_airbyte_raw_nominal_codes') }}
+-- period_balances from {{ source('sage200_etl_pte', '_airbyte_raw_nominal_codes') }}
 where 1 = 1
+and _airbyte_active_row = 1
 {{ incremental_clause('_airbyte_emitted_at', this) }}
+
 

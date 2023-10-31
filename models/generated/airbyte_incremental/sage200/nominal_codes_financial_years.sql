@@ -26,5 +26,6 @@ select
 from {{ ref('nominal_codes_financial_years_scd') }}
 -- financial_years from {{ source('sage200_etl_pte', '_airbyte_raw_nominal_codes') }}
 where 1 = 1
+and _airbyte_active_row = 1
 {{ incremental_clause('_airbyte_emitted_at', this) }}
 
