@@ -1,0 +1,19 @@
+version: 2
+sources:
+- name: sage200_etl_pte
+  quoting:
+    database: true
+    schema: false
+    identifier: false
+  tables:
+  - name: _airbyte_raw_cost_centres
+  - name: _airbyte_raw_customers
+  - name: _airbyte_raw_departments
+  - name: _airbyte_raw_financial_year_period_views
+  - name: _airbyte_raw_nominal_codes
+  - name: _airbyte_raw_nominal_report_categories
+  - name: _airbyte_raw_nominal_reporting_types
+  - name: _airbyte_raw_nominal_transaction_enquiry_views
+  - name: _airbyte_raw_purchase_posted_transactions
+  - name: _airbyte_raw_sales_posted_transactions
+  - name: _airbyte_raw_suppliers

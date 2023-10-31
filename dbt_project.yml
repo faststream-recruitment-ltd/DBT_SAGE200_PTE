@@ -1,0 +1,122 @@
+name: airbyte_utils
+version: '1.0'
+config-version: 2
+profile: normalize
+model-paths:
+- models
+docs-paths:
+- docs
+analysis-paths:
+- analysis
+test-paths:
+- tests
+seed-paths:
+- data
+macro-paths:
+- macros
+target-path: ../build
+log-path: ../logs
+packages-install-path: ../dbt_packages
+clean-targets:
+- build
+- dbt_modules
+quoting:
+  database: true
+  schema: false
+  identifier: true
+models:
+  airbyte_utils:
+    +materialized: table
+    generated:
+      airbyte_ctes:
+        +tags: airbyte_internal_cte
+        +materialized: ephemeral
+      airbyte_incremental:
+        +tags: incremental_tables
+        +materialized: incremental
+        +on_schema_change: sync_all_columns
+      airbyte_tables:
+        +tags: normalized_tables
+        +materialized: table
+      airbyte_views:
+        +tags: airbyte_internal_views
+        +materialized: view
+dispatch:
+- macro_namespace: dbt_utils
+  search_order:
+  - airbyte_utils
+  - dbt_utils
+vars:
+  json_column: _airbyte_data
+  models_to_source:
+    nominal_codes_ab1: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_stg: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_scd: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_ab1: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_stg: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_scd: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_ab1: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_stg: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_scd: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances: sage200_etl_pte._airbyte_raw_nominal_codes
+    cost_centres_ab1: sage200_etl_pte._airbyte_raw_cost_centres
+    cost_centres_ab2: sage200_etl_pte._airbyte_raw_cost_centres
+    cost_centres_stg: sage200_etl_pte._airbyte_raw_cost_centres
+    cost_centres_scd: sage200_etl_pte._airbyte_raw_cost_centres
+    cost_centres: sage200_etl_pte._airbyte_raw_cost_centres
+    customers_ab1: sage200_etl_pte._airbyte_raw_customers
+    customers_ab2: sage200_etl_pte._airbyte_raw_customers
+    customers_stg: sage200_etl_pte._airbyte_raw_customers
+    customers_scd: sage200_etl_pte._airbyte_raw_customers
+    customers: sage200_etl_pte._airbyte_raw_customers
+    departments_ab1: sage200_etl_pte._airbyte_raw_departments
+    departments_ab2: sage200_etl_pte._airbyte_raw_departments
+    departments_stg: sage200_etl_pte._airbyte_raw_departments
+    departments_scd: sage200_etl_pte._airbyte_raw_departments
+    departments: sage200_etl_pte._airbyte_raw_departments
+    financial_year_period_views_ab1: sage200_etl_pte._airbyte_raw_financial_year_period_views
+    financial_year_period_views_ab2: sage200_etl_pte._airbyte_raw_financial_year_period_views
+    financial_year_period_views_ab3: sage200_etl_pte._airbyte_raw_financial_year_period_views
+    financial_year_period_views: sage200_etl_pte._airbyte_raw_financial_year_period_views
+    nominal_report_categories_ab1: sage200_etl_pte._airbyte_raw_nominal_report_categories
+    nominal_report_categories_ab2: sage200_etl_pte._airbyte_raw_nominal_report_categories
+    nominal_report_categories_stg: sage200_etl_pte._airbyte_raw_nominal_report_categories
+    nominal_report_categories_scd: sage200_etl_pte._airbyte_raw_nominal_report_categories
+    nominal_report_categories: sage200_etl_pte._airbyte_raw_nominal_report_categories
+    nominal_reporting_types_ab1: sage200_etl_pte._airbyte_raw_nominal_reporting_types
+    nominal_reporting_types_ab2: sage200_etl_pte._airbyte_raw_nominal_reporting_types
+    nominal_reporting_types_ab3: sage200_etl_pte._airbyte_raw_nominal_reporting_types
+    nominal_reporting_types: sage200_etl_pte._airbyte_raw_nominal_reporting_types
+    nominal_transaction_enquiry_views_ab1: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
+    nominal_transaction_enquiry_views_ab2: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
+    nominal_transaction_enquiry_views_stg: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
+    nominal_transaction_enquiry_views_scd: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
+    nominal_transaction_enquiry_views: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
+    purchase_posted_transactions_ab1: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
+    purchase_posted_transactions_ab2: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
+    purchase_posted_transactions_stg: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
+    purchase_posted_transactions_scd: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
+    purchase_posted_transactions: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
+    sales_posted_transactions_ab1: sage200_etl_pte._airbyte_raw_sales_posted_transactions
+    sales_posted_transactions_ab2: sage200_etl_pte._airbyte_raw_sales_posted_transactions
+    sales_posted_transactions_stg: sage200_etl_pte._airbyte_raw_sales_posted_transactions
+    sales_posted_transactions_scd: sage200_etl_pte._airbyte_raw_sales_posted_transactions
+    sales_posted_transactions: sage200_etl_pte._airbyte_raw_sales_posted_transactions
+    suppliers_ab1: sage200_etl_pte._airbyte_raw_suppliers
+    suppliers_ab2: sage200_etl_pte._airbyte_raw_suppliers
+    suppliers_stg: sage200_etl_pte._airbyte_raw_suppliers
+    suppliers_scd: sage200_etl_pte._airbyte_raw_suppliers
+    suppliers: sage200_etl_pte._airbyte_raw_suppliers
+    nominal_codes_financial_years_ab1: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years_ab3: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financial_years: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_ab1: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances_ab3: sage200_etl_pte._airbyte_raw_nominal_codes
+    nominal_codes_financ__years_period_balances: sage200_etl_pte._airbyte_raw_nominal_codes
