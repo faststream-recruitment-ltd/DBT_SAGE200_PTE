@@ -1,7 +1,7 @@
 {{ config(
     indexes = [{'columns':['_airbyte_active_row','_airbyte_unique_key_scd','_airbyte_emitted_at'],'type': 'btree'}],
     unique_key = "_airbyte_unique_key_scd",
-    schema = "_airbyte_sage200_etl_scd_frl",
+    schema = "_airbyte_sage200_etl_scd_pte",
     post_hook = ["
                     {%
                     set final_table_relation = adapter.get_relation(
