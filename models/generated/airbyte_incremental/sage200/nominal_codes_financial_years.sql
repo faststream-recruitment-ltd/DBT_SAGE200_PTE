@@ -7,6 +7,7 @@
 -- Final base SQL model
 -- depends_on: {{ ref('nominal_codes_financial_years_scd') }}
 select
+    _airbyte_unique_key,
     budget_value,
     nominal_code_id,
     date_time_updated,
