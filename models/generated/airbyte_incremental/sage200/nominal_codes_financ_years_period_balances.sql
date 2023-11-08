@@ -1,8 +1,8 @@
 {{ config(
-    indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
-    unique_key = '_airbyte_ab_id',
-    schema = "_airbyte_sage200_etl_stg_pte",
-    tags = [ "top-level-intermediate" ]
+    indexes = [{'columns':['_airbyte_unique_key'],'unique':True}],
+    unique_key = "_airbyte_unique_key",
+    schema = "sage200_etl_pte",
+    tags = [ "top-level" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('nominal_codes_financ_years_period_balances_scd') }}
