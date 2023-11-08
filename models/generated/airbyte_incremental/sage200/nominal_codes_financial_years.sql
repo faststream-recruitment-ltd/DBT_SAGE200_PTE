@@ -1,7 +1,8 @@
 {{ config(
     indexes = [{'columns':['_airbyte_emitted_at'],'type':'btree'}],
-    schema = "sage200_etl_pte",
-    tags = [ "nested" ]
+    unique_key = '_airbyte_ab_id',
+    schema = "_airbyte_sage200_etl_stg_pte",
+    tags = [ "top-level-intermediate" ]
 ) }}
 -- Final base SQL model
 -- depends_on: {{ ref('nominal_codes_financial_years_scd') }}
