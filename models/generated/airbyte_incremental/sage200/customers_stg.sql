@@ -8,6 +8,15 @@
 -- depends_on: {{ ref('customers_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
+        'mainAddress_address_1',
+	    'mainAddress_address_2',
+	    'mainAddress_address_3',
+	    'mainAddress_address_4',
+	    'mainAddress_city',
+	    'mainAddress_county',
+	    'mainAddress_country',
+	    'mainAddress_code',
+	    'mainAddress_postcode',
         'office_type',
         'account_type',
         'balance',

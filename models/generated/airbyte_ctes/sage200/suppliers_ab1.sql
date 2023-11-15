@@ -7,6 +7,15 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('sage200_etl_pte', '_airbyte_raw_suppliers') }}
 select
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_1'], ['mainAddress_address_1']) }} as mainAddress_address_1,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_2'], ['mainAddress_address_2']) }} as mainAddress_address_2,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_3'], ['mainAddress_address_3']) }} as mainAddress_address_3,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_4'], ['mainAddress_address_4']) }} as mainAddress_address_4,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'city'], ['mainAddress_city']) }} as mainAddress_city,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'county'], ['mainAddress_county']) }} as mainAddress_county,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_country_code', 'name'], ['mainAddress_country']) }} as mainAddress_country,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'address_country_code', 'code'], ['mainAddress_code']) }} as mainAddress_code,
+    {{ json_extract_scalar('_airbyte_data', ['main_address', 'postcode'], ['mainAddress_postcode']) }} as mainAddress_postcode,
     {{ json_extract_scalar('_airbyte_data', ['account_type'], ['account_type']) }} as account_type,
     {{ json_extract_scalar('_airbyte_data', ['vat_number'], ['vat_number']) }} as vat_number,
     {{ json_extract_scalar('_airbyte_data', ['telephone_subscriber_number'], ['telephone_subscriber_number']) }} as telephone_subscriber_number,

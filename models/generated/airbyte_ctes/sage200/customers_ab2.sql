@@ -7,6 +7,15 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('customers_ab1') }}
 select
+    cast(mainAddress_address_1 as {{ dbt_utils.type_string() }}) as mainAddress_address_1,
+	cast(mainAddress_address_2 as {{ dbt_utils.type_string() }}) as mainAddress_address_2,
+	cast(mainAddress_address_3 as {{ dbt_utils.type_string() }}) as mainAddress_address_3,
+	cast(mainAddress_address_4 as {{ dbt_utils.type_string() }}) as mainAddress_address_4,
+	cast(mainAddress_city as {{ dbt_utils.type_string() }}) as mainAddress_city,
+	cast(mainAddress_county as {{ dbt_utils.type_string() }}) as mainAddress_county,
+	cast(mainAddress_country as {{ dbt_utils.type_string() }}) as mainAddress_country,
+	cast(mainAddress_code as {{ dbt_utils.type_string() }}) as mainAddress_code,
+	cast(mainAddress_postcode as {{ dbt_utils.type_string() }}) as mainAddress_postcode,
     cast(office_type as {{ dbt_utils.type_string() }}) as office_type,
     cast(account_type as {{ dbt_utils.type_string() }}) as account_type,
     cast(balance as {{ dbt_utils.type_float() }}) as balance,
