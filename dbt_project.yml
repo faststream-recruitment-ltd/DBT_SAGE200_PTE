@@ -120,3 +120,8 @@ vars:
     nominal_codes_financ__years_period_balances_ab2: sage200_etl_pte._airbyte_raw_nominal_codes
     nominal_codes_financ__years_period_balances_ab3: sage200_etl_pte._airbyte_raw_nominal_codes
     nominal_codes_financ__years_period_balances: sage200_etl_pte._airbyte_raw_nominal_codes
+    currency_ab1: sage200_etl_pte._airbyte_raw_currency
+    currency_ab2: sage200_etl_pte._airbyte_raw_currency
+    currency_stg: sage200_etl_pte._airbyte_raw_currency
+    currency_scd: sage200_etl_pte._airbyte_raw_currency
+    currency: sage200_etl_pte._airbyte_raw_currency
