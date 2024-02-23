@@ -92,11 +92,6 @@ vars:
     nominal_reporting_types_ab2: sage200_etl_pte._airbyte_raw_nominal_reporting_types
     nominal_reporting_types_ab3: sage200_etl_pte._airbyte_raw_nominal_reporting_types
     nominal_reporting_types: sage200_etl_pte._airbyte_raw_nominal_reporting_types
-    nominal_transaction_enquiry_views_ab1: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
-    nominal_transaction_enquiry_views_ab2: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
-    nominal_transaction_enquiry_views_stg: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
-    nominal_transaction_enquiry_views_scd: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
-    nominal_transaction_enquiry_views: sage200_etl_pte._airbyte_raw_nominal_transaction_enquiry_views
     purchase_posted_transactions_ab1: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
     purchase_posted_transactions_ab2: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
     purchase_posted_transactions_stg: sage200_etl_pte._airbyte_raw_purchase_posted_transactions
